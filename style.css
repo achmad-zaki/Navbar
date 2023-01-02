@@ -39,6 +39,62 @@ body {
     font-weight: 700;
 }
 
+#menu-toggle {
+    position: relative;
+    user-select: none;
+    display: none;
+    z-index: 1;
+}
+
+#menu-toggle input {
+    display: block;
+    position: absolute;
+    top: -9px;
+    left: -9px;
+    width: 33px;
+    height: 30px;
+    cursor: pointer;
+    opacity: 0;
+    z-index: 2;
+}
+
+#menu-toggle span {
+    display: block;
+    width: 25px;
+    height: 2px;
+    /* position: relative; */
+    background-color: var(--color-primary);
+    margin-bottom: 6px;
+    /* transform-origin: 4px 0px; */
+    z-index: -1;
+    transition: transform 0.3s cubic-bezier(0.77,0.2,0.05,1.0),
+    background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+    opacity 0.1s ease;
+}
+
+#menu-toggle .top-bar {
+    transform-origin: 0% 0%;
+}
+
+#menu-toggle .bottom-bar {
+    transform-origin: 0% 100%;
+}
+
+#menu-toggle input:checked ~ .top-bar {
+    opacity: 1;
+    transform: rotate(45deg) translate(-3px, -2px);
+}
+
+#menu-toggle input:checked ~ .middle-bar {
+    opacity: 0;
+    transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+#menu-toggle input:checked ~ .bottom-bar {
+    opacity: 1;
+    transform: rotate(-45deg) translate(1px, -2px);
+}
+
 .logo-text {
     text-decoration: none;
     font-weight: 500;
@@ -63,8 +119,6 @@ body {
     font-weight: 400;
     text-decoration: none;
     color: var(--color-primary);
-    transition: 0.3s;
-    transform: scale(0.98);
 }
 
 .nav-link:after {
@@ -72,7 +126,7 @@ body {
     position: absolute;
     background-color: var(--color-primary);
     left: 45%;
-    bottom: -8px;
+    bottom: -13px;
     width: 0;
     height: 4px;
     border-radius: 5px;
@@ -84,7 +138,7 @@ body {
     position: absolute;
     background-color: var(--color-primary);
     left: 45%;
-    bottom: -15px;
+    bottom: -13px;
     width: 9px;
     height: 45%;
 }
@@ -98,17 +152,22 @@ body {
     border-radius: 5px;
     cursor: pointer;
     transition: 0.3s;
+    font-size: 17px;
 }
 
 .btn-primary:hover {
     background-color: var(--color-primary-hover);
 }
 
-.humberger {
-    display: none;
+#menu-toggle {
     border: none;
     background-color: transparent;
     cursor: pointer;
+}
+
+.hidden {
+    display: none;
+    border: 1px solid;
 }
 
 @media screen and (max-width: 910px) {
@@ -125,12 +184,8 @@ body {
     }
 
     .nav-item {
-        margin-left: 0px;
+        margin-left: 0;
         margin-top: 30px;
-    }
-
-    .humberger {
-        display: block;
     }
 
     .active::after {
@@ -144,6 +199,12 @@ body {
     }
 
     .btn-primary {
-        margin-top: 30px;
+        margin-top: 20px;
+        padding: 15px 80px;
+    }
+
+    #menu-toggle {
+        display: block;
+        margin-top: 10px;
     }
 }
