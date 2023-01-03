@@ -165,22 +165,15 @@ body {
     cursor: pointer;
 }
 
-.hidden {
-    display: none;
-    border: 1px solid;
-}
-
-@media screen and (max-width: 910px) {
+@media screen and (max-width: 940px) {
     .wrapper {
         display: flex;
         flex-wrap: wrap;
     }
 
     .navbar-nav {
-        display: flex;
         flex-direction: column;
         width: 100%;
-        /* display: none; */
     }
 
     .nav-item {
@@ -206,5 +199,9 @@ body {
     #menu-toggle {
         display: block;
         margin-top: 10px;
+    }
+
+    .hidden {
+        display: none;
     }
 }

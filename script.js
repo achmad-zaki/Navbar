@@ -8,3 +8,12 @@ for(let i = 0; i < navActive.length; i++) {
         this.className += " active";
     })
 }
+
+function menuToggle() {
+    let nav = document.getElementById('navbar-nav')
+    if(nav.className === 'navbar-nav') {
+        nav.className += ' hidden';
+    } else {
+        nav.className = 'navbar-nav';
+    }
+}
